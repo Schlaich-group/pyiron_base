@@ -21,7 +21,10 @@ pyiron
     :target: https://pyiron-base.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-Fast_import pyiron: Always make sure you import Pyiron as the last package in your Python script.
+------------
+IMPORTANT: Fast_import pyiron: Always make sure you import Pyiron as the last package in your Python script.
+------------
+
 pyiron - an integrated development environment (IDE) for computational materials science. While the general pyiron framework is focused on atomistic simulations, pyiron_base is independent of atomistic simulation. It can be used as a standalone workflow management combining a hierachical storage interface based on HDF5, support for HPC computing clusters and a user interface integrated in the Jupyter environment. 
 
 Installation
