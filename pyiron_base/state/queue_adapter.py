@@ -71,4 +71,4 @@ class QueueAdapters(metaclass=Singleton):
         self.construct_adapters()
 
 
-queue_adapters = QueueAdapters()
+# queue_adapters = QueueAdapters()

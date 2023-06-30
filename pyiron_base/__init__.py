@@ -2,6 +2,34 @@
 # Copyright (c) Max-Planck-Institut für Eisenforschung GmbH - Computational Materials Design (CM) Department
 # Distributed under the terms of "New BSD License", see the LICENSE file.
 
+#########Edit by Adyant for faster import###########
+import sys
+import mock
+#For importing pyiron_base.cli
+sys.modules['pint'] = mock.MagicMock()
+sys.modules['git'] = mock.MagicMock()
+#For importing pyiron.Project
+sys.modules['mendeleev'] = mock.MagicMock()
+sys.modules['mp_api.client'] = mock.MagicMock()
+sys.modules['seaborn'] = mock.MagicMock()
+sys.modules['nglview'] = mock.MagicMock()
+#Make it even faster
+sys.modules['structuretoolkit'] = mock.MagicMock()
+sys.modules['structuretoolkit.analyse'] = mock.MagicMock()
+sys.modules['structuretoolkit.visualize'] = mock.MagicMock()
+sys.modules['structuretoolkit.common'] = mock.MagicMock()
+sys.modules['structuretoolkit.build'] = mock.MagicMock()
+sys.modules['structuretoolkit.common.error'] = mock.MagicMock()
+sys.modules['pymatgen.io.ase'] = mock.MagicMock()
+sys.modules['pymatgen.core'] = mock.MagicMock()
+sys.modules['ase.io'] = mock.MagicMock()
+sys.modules['ase.spacegroup'] = mock.MagicMock()
+sys.modules['ase.build'] = mock.MagicMock()
+sys.modules['ase.build.bulk'] = mock.MagicMock()
+#Make it blazing fast
+sys.modules['matplotlib.pyplot'] = mock.MagicMock()
+#####################################################
+
 from pyiron_base.state import state
 
 # API of the pyiron_base module - in alphabetical order
@@ -49,11 +77,13 @@ from pyiron_base.jobs.job.toolkit import Toolkit, BaseTools
 
 Project.register_tools("base", BaseTools)
 
+#########Edit by Adyant for faster import###########
 # optional API of the pyiron_base module
-try:
-    from pyiron_base.project.gui import ProjectGUI
-except (ImportError, TypeError, AttributeError):
-    pass
+# try:
+#     from pyiron_base.project.gui import ProjectGUI
+# except (ImportError, TypeError, AttributeError):
+#     pass
+#####################################################
 
 # Internal init
 from ._version import get_versions

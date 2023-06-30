@@ -24,22 +24,39 @@ __email__ = "siemer@mpie.de"
 __status__ = "development"
 __date__ = "Feb 02, 2021"
 
+_has_imported = {}
+######Edit by Adyant to speed up the code################
+# try:
+#     from PIL import Image
+
+#     _has_imported["PIL"] = True
+#     # For some reason I do not know this forces PIL to always be aware of all possible Image extensions.
+#     Image.registered_extensions()
+# except ImportError:
+#     _has_imported["PIL"] = False
+# try:
+#     import nbformat, nbconvert
+
+#     _has_imported["nbformat"] = True
+# except ImportError:
+#     _has_imported["nbformat"] = False
 
 _has_imported = {}
-try:
-    from PIL import Image
-
-    _has_imported["PIL"] = True
-    # For some reason I do not know this forces PIL to always be aware of all possible Image extensions.
-    Image.registered_extensions()
-except ImportError:
+    _has_imported["PIL"] = False
     _has_imported["PIL"] = False
 try:
     import nbformat, nbconvert
 
     _has_imported["nbformat"] = True
 except ImportError:
-    _has_imported["nbformat"] = False
+_has_imported["PIL"] = False
+try:
+    import nbformat, nbconvert
+
+    _has_imported["nbformat"] = True
+except ImportError:
+_has_imported["nbformat"] = False
+##########################################################
 
 if all(_has_imported.values()):
     import_alarm = ImportAlarm()

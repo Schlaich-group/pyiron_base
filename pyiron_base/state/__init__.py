@@ -17,7 +17,7 @@ compatibility.
 from pyiron_base.state.logger import logger as _logger
 from pyiron_base.database.manager import database as _database
 from pyiron_base.state.publications import publications as _publications
-from pyiron_base.state.queue_adapter import queue_adapters as _queue_adapters
+from pyiron_base.state.queue_adapter import QueueAdapters as _queue_adapters
 from pyiron_base.state.settings import settings as _settings
 from pyiron_base.interfaces.singleton import Singleton
 from typing import Dict, Union
@@ -64,7 +64,7 @@ class State(metaclass=Singleton):
 
     @property
     def queue_adapter(self):
-        return _queue_adapters.adapter
+        return _queue_adapters().adapter
 
     def update(self, config_dict: Union[Dict, None] = None) -> None:
         """
@@ -75,7 +75,7 @@ class State(metaclass=Singleton):
                 the configuration from system environment xor configuration files.)
         """
         self.settings.update(user_dict=config_dict)
-        _queue_adapters.update()
+        _queue_adapters().update()
         self.database.update()
 
 
