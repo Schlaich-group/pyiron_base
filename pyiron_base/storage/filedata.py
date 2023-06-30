@@ -41,20 +41,7 @@ _has_imported = {}
 # except ImportError:
 #     _has_imported["nbformat"] = False
 
-_has_imported = {}
-    _has_imported["PIL"] = False
-    _has_imported["PIL"] = False
-try:
-    import nbformat, nbconvert
-
-    _has_imported["nbformat"] = True
-except ImportError:
 _has_imported["PIL"] = False
-try:
-    import nbformat, nbconvert
-
-    _has_imported["nbformat"] = True
-except ImportError:
 _has_imported["nbformat"] = False
 ##########################################################
 
